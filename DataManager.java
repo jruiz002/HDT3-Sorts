@@ -7,7 +7,7 @@ public class DataManager {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo))) {
             Random random = new Random();
             for (int i = 0; i < cantidadNumeros; i++) {
-                int numero = random.nextInt(Integer.MAX_VALUE); // Generar número entero aleatorio no negativo
+                int numero = random.nextInt(100) + 1; // Generar número aleatorio entre 1 y 100
                 writer.write(Integer.toString(numero));
                 writer.write(" "); // Separar por espacio
             }
