@@ -14,10 +14,11 @@ public class Main {
         //insertionsort.sort(DataManager.saveNumbers(10, "datos.txt"));
         QuickSort quickSort = new QuickSort();
         RadixSort radixSort = new RadixSort();
+        MergeSort mergesort = new MergeSort();
 
         System.out.println("no ordenado");
         imprimirArray(numeros);
-        radixSort.sort(numeros);
+        mergesort.sort(numeros);
         System.out.println("ordenado");
         imprimirArray(numeros);
 
