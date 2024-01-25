@@ -1,23 +1,14 @@
 public class Main {
     public static void main(String[] args) {
-        // Ejemplo de uso con un array de enteros
-        Integer[] numeros = {5, 2, 8, 1, 7, 3};
 
-        System.out.print("Array original: ");
-        imprimirArray(numeros);
+        //Generar archivo
+        DataManager.numerosRandom("datos.txt", 3000);
 
-        GnomeSort gnomeSort = new GnomeSort();
 
-        gnomeSort.sort(numeros);
+        GnomeSort sort = new GnomeSort();
+        sort.sort(DataManager.saveNumbers(10, "datos.txt"));
 
-        System.out.print("Array ordenado: ");
-        imprimirArray(numeros);
     }
 
-    private static <T> void imprimirArray(T[] array) {
-        for (T elemento : array) {
-            System.out.print(elemento + " ");
-        }
-        System.out.println();
-    }
+
 }
