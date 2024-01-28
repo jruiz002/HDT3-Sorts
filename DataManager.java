@@ -3,18 +3,27 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class DataManager {
-    public  static void numerosRandom(String nombreArchivo, int cantidadNumeros) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo))) {
-            Random random = new Random();
-            for (int i = 0; i < cantidadNumeros; i++) {
-                int numero = random.nextInt(100) + 1; // Generar número aleatorio entre 1 y 100
-                writer.write(Integer.toString(numero));
-                writer.write(" "); // Separar por espacio
+    public static void numerosRandom(String nombreArchivo, int cantidadNumeros) {
+        File archivo = new File(nombreArchivo);
+
+        // Verificar si el archivo ya existe
+        if (archivo.exists()) {
+            System.out.println("El archivo ya existe: " + nombreArchivo);
+            return; // Salir del método si el archivo ya existe
+        }else{
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo))) {
+                Random random = new Random();
+                for (int i = 0; i < cantidadNumeros; i++) {
+                    int numero = random.nextInt(5000) + 1; // Generar número aleatorio entre 1 y 5000
+                    writer.write(Integer.toString(numero));
+                    writer.write(" "); // Separar por espacio
+                }
+                System.out.println("Archivo generado exitosamente: " + nombreArchivo);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            System.out.println("Archivo generado exitosamente: " + nombreArchivo);
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+
     }
 
 
